@@ -1,7 +1,6 @@
 package com.example.cleanarchitecturetraining.domain.usecase
 
 import com.example.cleanarchitecturetraining.domain.models.SaveUserNameParam
-import com.example.cleanarchitecturetraining.domain.models.UserName
 import com.example.cleanarchitecturetraining.domain.repository.UserRepository
 
 class SaveUserNameUsecase(private val userRepository : UserRepository) {

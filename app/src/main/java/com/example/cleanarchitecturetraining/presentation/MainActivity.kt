@@ -3,7 +3,6 @@ package com.example.cleanarchitecturetraining.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.cleanarchitecturetraining.data.repository.UserRepositoryImpl
-import com.example.cleanarchitecturetraining.data.storage.UserStorage
 import com.example.cleanarchitecturetraining.data.storage.sharedPrefs.SharedPrefUserStorage
 import com.example.cleanarchitecturetraining.databinding.ActivityMainBinding
 import com.example.cleanarchitecturetraining.domain.models.SaveUserNameParam
