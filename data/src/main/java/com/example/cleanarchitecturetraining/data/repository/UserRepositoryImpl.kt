@@ -13,9 +13,8 @@ class UserRepositoryImpl(private val userStorage: UserStorage) : UserRepository 
         return userStorage.save(user)
     }
 
-    override fun getName() : UserName {
+    override fun getName(): UserName {
         val user = userStorage.get()
-        val username = UserName(firstName = user.firstName, lastName = user.lastName)
-        return username
+        return UserName(firstName = user.firstName, lastName = user.lastName)
     }
 }

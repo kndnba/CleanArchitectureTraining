@@ -12,9 +12,19 @@ import com.example.cleanarchitecturetraining.domain.usecase.SaveUserNameUsecase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val userRepository by lazy { UserRepositoryImpl(SharedPrefUserStorage(applicationContext)) }
-    private val getUserNameUseCase by lazy { GetUserNameUseCase(userRepository) }
-    private val saveUserNameUseCase by lazy { SaveUserNameUsecase(userRepository) }
+
+    private val userRepository by lazy {
+        UserRepositoryImpl(SharedPrefUserStorage(applicationContext))
+    }
+
+    private val getUserNameUseCase by lazy {
+        GetUserNameUseCase(userRepository)
+    }
+
+    private val saveUserNameUseCase by lazy {
+        SaveUserNameUsecase(userRepository)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,13 +34,16 @@ class MainActivity : AppCompatActivity() {
             sendButton.setOnClickListener {
                 var name = dataEditText.text.toString()
                 var lastName = dataEditTextLastName.text.toString()
-                val param = SaveUserNameParam(name = name, lastName = lastName)
+                val param = SaveUserNameParam(
+                    name = name,
+                    lastName = lastName
+                )
                 val result = saveUserNameUseCase.execute(param = param)
                 dataTextView.text = "Saved result = $result"
             }
 
             receiveButton.setOnClickListener {
-                val userName : UserName = getUserNameUseCase.execute()
+                val userName: UserName = getUserNameUseCase.execute()
                 dataTextView.text = "${userName.firstName} ${userName.lastName}"
             }
         }
