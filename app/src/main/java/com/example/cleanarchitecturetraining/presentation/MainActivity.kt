@@ -12,7 +12,6 @@ import com.example.cleanarchitecturetraining.domain.usecase.SaveUserNameUsecase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
     private val userRepository by lazy {
         UserRepositoryImpl(SharedPrefUserStorage(applicationContext))
     }
